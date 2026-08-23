@@ -1,0 +1,21 @@
+{
+  "name": "api-building",
+  "version": "1.0.0",
+  "description": "api for the ecommerce",
+  "homepage": "https://github.com/SujinChaudhary/API-building#readme",
+  "bugs": {
+    "url": "https://github.com/SujinChaudhary/API-building/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SujinChaudhary/API-building.git"
+  },
+  "license": "ISC",
+  "author": "Sujin Chaudhary",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

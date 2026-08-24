@@ -1,0 +1,17 @@
+import path from 'path';
+import url from 'url';
+
+
+const filePath= "Foldler/Floder/Folder/text.txt";
+console.log(path.dirname(filePath));
+console.log(path.basename(filePath));
+console.log(path.extname(filePath));
+
+
+//Current Working File and Folder
+const __filename= url.fileURLToPath(import.meta.url);
+const __dirname= path.dirname(__filename);
+
+console.log(__filename);
+console.log(__dirname);
+

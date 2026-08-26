@@ -1,9 +1,19 @@
 import http from 'http';
 const server = http.createServer((request ,response)=>{
-   response.writeHead(200,{
-    "content-type" : "application/json",
-   });
-    response.end(JSON.stringify({status: 'ok'}));
+  console.log(request.url);
+  switch(request.url){
+    case '/about':
+        return response.end("<h1>About Page</h1>");
+    case '/contact':
+        return response.end("<h1>Contact Page</h1>");
+    case '/':
+        return response.end("<h1>Home Page</h1>");
+    default:
+        response.writeHead('404');
+        return response.end("<h1> 404 Page not found </h1>");
+    
+  }
+
 
 });
 

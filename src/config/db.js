@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import config from './config.js';
 async function connectDB(){
     try{
-        await mongoose.connect(config.db);
+        await mongoose.connect(`mongodb://${config.host}:${config.dbport}/${config.dbname}`);
         console.log("Database Connected");
         
     }catch(error){

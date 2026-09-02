@@ -18,4 +18,41 @@ const getUserById = async (request, response) => {
   response.json(user);
 };
 
-export default { getUsers, getUserById };
+const createUser = async (req, res) => {
+  try {
+    const createdUser = await userServices.createUser();
+    res.json(createdUser);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+const deleteUser = async (req, res) => {
+  const id = req.params.userId;
+
+  try {
+    if (!id) {
+      return res.status(400).json({
+        error: "User ID is required",
+      });
+    }
+
+    const deletedUser = await userServices.deleteUser(id);
+
+    if (!deletedUser) {
+      return res.status(404).json({
+        error: "User not found",
+      });
+    }
+
+    res.json({
+      message: `UserID ${id} deleted successfully`,
+    });
+
+  } catch (error) {
+    res.status(400).json({
+      error: error.message,
+    });
+  }
+};
+
+export default { getUsers, getUserById, createUser,deleteUser };

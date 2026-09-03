@@ -16,16 +16,27 @@ const login = async (input) => {
       message: "Credentials don't match.",
     };
   }
-  return user;
+  return {
+    _id: user.id,
+    name: user.name,
+    email: user.email,
+    phone: user.phone
+  };
 };
 const register = async (input) => {
   const hashedPassword = await bcrypt.hash(input.password, 10);
 
-  return await User.create({
+  const user =  await User.create({
     name: input.name,
     email: input.email,
     phone: input.phone,
     password: hashedPassword,
   });
+  return {
+   
+    name: user.name,
+    email: user.email,
+    phone: user.phone
+  };
 };
 export default { login, register };

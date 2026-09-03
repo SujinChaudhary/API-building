@@ -4,10 +4,12 @@ import config from "./config/config.js";
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import productRoutes from "./routes/product.routes.js";
+import logger  from "./middleware/logger.js";
 
 const app = express();
 connectDB();
 app.use(express.json());
+app.use(logger);
 
 app.use("/api/auth",authRoutes);
 app.use("/api/users", userRoutes);

@@ -12,12 +12,18 @@ const getUserById = async (id) => {
 };
 
 const createUser = async () => {
-  return await User.create({
-    name: "Hram Shrestha",
-    email: "hram@gmail.com",
-    password: "apps123apps1",
-    phone: 9812314529,
+  const hashedPassword = await bcrypt.hash(input.password, 10);
+  const user = await User.create({
+    name: input.name,
+    email: input.email,
+    phone: input.phone,
+    password: hashedPassword,
   });
+  return {
+    name: user.name,
+    email: user.email,
+    phone: user.phone,
+  };
 };
 
 const deleteUser = async (id) => {

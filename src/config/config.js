@@ -5,5 +5,6 @@ const config = {
   host: process.env.HOST || "localhost",
   dbport: process.env.DBPORT || "27017",
   dbname: process.env.DBNAME || "",
+  jwtSecret: process.env.JWT_SECRET|| "",
 };
 export default config;
